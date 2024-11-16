@@ -5,22 +5,6 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import MinMaxScaler
 
 
-def load_data(filepath):
-    return pd.read_csv(filepath)
-
-
-def preprocess_data(df):
-    # One-hot encode categorical variables and separate features and target
-    df_encoded = pd.get_dummies(df, drop_first=True)
-    X = df_encoded.drop(columns=['Default'])
-    y = df_encoded['Default'].astype(int)  # Ensure target is numeric
-    return X, y
-
-
-def split_data(X, y, test_size=0.3, random_state=42):
-    return train_test_split(X, y, test_size=test_size, random_state=random_state)
-
-
 def cap_outliers(df, column):
     Q1 = df[column].quantile(0.25)
     Q3 = df[column].quantile(0.75)
