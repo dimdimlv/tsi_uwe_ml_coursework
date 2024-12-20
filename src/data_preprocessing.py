@@ -3,6 +3,7 @@ import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import MinMaxScaler
+from imblearn.over_sampling import SMOTE
 
 
 def cap_outliers(df, column):
@@ -76,3 +77,20 @@ def scale_numerical_columns(df, numerical_columns):
     scaler = MinMaxScaler()
     df[numerical_columns] = scaler.fit_transform(df[numerical_columns])
     return df
+
+
+def apply_smote(X, y, random_state=42):
+    """
+    Apply SMOTE to balance the dataset.
+
+    Args:
+        X (pd.DataFrame): Features.
+        y (pd.Series): Target variable.
+        random_state (int): Random state for reproducibility.
+
+    Returns:
+        pd.DataFrame, pd.Series: Resampled features and target.
+    """
+    smote = SMOTE(random_state=random_state)
+    X_resampled, y_resampled = smote.fit_resample(X, y)
+    return X_resampled, y_resampled

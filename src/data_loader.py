@@ -19,3 +19,4 @@ def load_credit_card_dataset():
     print(default_of_credit_card_clients.variables)
 
     return df
+

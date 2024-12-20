@@ -46,3 +46,18 @@ Experiment 4:
 - Score (Default): 0.706
 - AUC: 0.752
 Best for prioritizing default detection.
+
+## Next Steps for Experiment 4
+
+1. Fine-Tune SMOTE and Threshold Optimization
+- SMOTE Fine-Tuning:
+- Adjust the oversampling ratio to find the optimal balance between the majority and minority classes.
+- Use the sampling_strategy parameter in SMOTE to control the target ratio of the minority to majority class.
+- Threshold Optimization:
+- Use the probabilities predicted by the logistic regression model to fine-tune the decision threshold.
+- Evaluate how different thresholds impact precision, recall, and F1-Score.
+
+2. Validation on an Unseen Test Set
+
+- Split the data into training, validation, and test sets (e.g., 60% training, 20% validation, 20% test).
+- Train the model on the training set, tune thresholds on the validation set, and evaluate the final configuration on the unseen test set.
