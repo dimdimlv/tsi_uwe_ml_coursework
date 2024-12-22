@@ -196,4 +196,3 @@ dependencies:
       - kiwisolver==1.4.7
       - ucimlrepo==0.0.7
       - xgboost==2.1.2
-prefix: /Users/dimdim/anaconda3/envs/cw_ml_39696
